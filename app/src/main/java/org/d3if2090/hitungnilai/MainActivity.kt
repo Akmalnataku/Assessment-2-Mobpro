@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener { hitungNilai() }
         binding.btnReset.setOnClickListener { reset() }
+        viewModel.getHasilNilai().observe(this, {showResult(it)})
     }
 
     private fun hitungNilai() {
@@ -51,14 +52,12 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val result = viewModel.hitungNilai(
+        viewModel.hitungNilai(
             praktikum.toFloat(),
             assessment1.toFloat(),
             assessment2.toFloat(),
             assessment3.toFloat()
         )
-
-        showResult(result)
     }
 
     private fun getKategoriLabel(kategori: KategoriNilai): String {
@@ -92,7 +91,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResult(result: HasilNilai) {
+    private fun showResult(result: HasilNilai?) {
+        if (result == null) return
         binding.nilaiTextView.text = getString(R.string.nilai_x, result.nilai)
         binding.indexTextView.text = getString(
             R.string.index_x,
