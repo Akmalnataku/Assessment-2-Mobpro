@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Hitung Nilai MOBPRO</string>
+    <string name="text_view">Text View</string>
+    <string name="hitung_nilai_intro">Ayo hitung nilai Mobpro mu sekarang!</string>
+    <string name="praktikum">Praktikum</string>
+    <string name="assessment1">Assessment 1</string>
+    <string name="hitung">Hitung</string>
+    <string name="assessment2">Assessment 2</string>
+    <string name="assessment3">Assessment 3</string>
+    <string name="reset">Reset</string>
+    <string name="lihat_saran">Saran</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="nilai_x">NILAI: %1$.2f</string>
+    <string name="index_x">INDEX: %1$s</string>
+    <string name="bagus">A</string>
+    <string name="lumayan">B</string>
+    <string name="buruk">C</string>
+    <string name="nilai_invalid">Nilai tidak boleh kosong.</string>
+</resources>
