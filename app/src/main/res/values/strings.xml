@@ -19,4 +19,11 @@
     <string name="nilai_praktikum">Nilai Praktikum</string>
     <string name="nilai_assessment_1">Nilai Assessment 1</string>
     <string name="nilai_assessment_2">Nilai Assessment 2</string>
+
+    <string name="judul_a">Alhamdulillah Nilaimu A</string>
+    <string name="judul_b">Baguslah, B not Bad</string>
+    <string name="judul_C">Astaghfirullah Nilaimu C</string>
+    <string name="saran_a">Pertahankan prestasimu dan jangan sombong dengan nilaimu.</string>
+    <string name="saran_b">Cobalah untuk meluangkan waktu lebih banyak untuk belajar.</string>
+    <string name="saran_c">Cobalah untuk introspeksi diri. Ingat, kesuksesan juga berawal dari kegagalan.</string>
 </resources>
