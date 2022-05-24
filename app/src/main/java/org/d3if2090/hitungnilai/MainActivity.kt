@@ -4,11 +4,18 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import org.d3if2090.hitungnilai.databinding.ActivityMainBinding
+import org.d3if2090.hitungnilai.model.HasilNilai
+import org.d3if2090.hitungnilai.model.KategoriNilai
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this)[MainViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,38 +32,41 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
+
         val assessment1 = binding.assessment1Inp.text.toString()
         if (TextUtils.isEmpty(assessment1)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
+
         val assessment2 = binding.assessment2Inp.text.toString()
         if (TextUtils.isEmpty(assessment2)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
+
         val assessment3 = binding.assessment3Inp.text.toString()
         if (TextUtils.isEmpty(assessment3)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val nilai =
-            ((praktikum.toFloat() * 0.25) + (assessment1.toFloat() * 0.2) +
-                    (assessment2.toFloat() * 0.25) + (assessment3.toFloat() * 0.3))
 
-        val kategori = getKategori(nilai)
+        val result = viewModel.hitungNilai(
+            praktikum.toFloat(),
+            assessment1.toFloat(),
+            assessment2.toFloat(),
+            assessment3.toFloat()
+        )
 
-        binding.nilaiTextView.text = getString(R.string.nilai_x, nilai)
-        binding.indexTextView.text = getString(R.string.index_x, kategori)
+        showResult(result)
     }
 
-    private fun getKategori(nilai: Double): String {
-        val stringRes =
-            when {
-                nilai >= 80 -> R.string.bagus
-                nilai <= 79.9 -> R.string.lumayan
-                else -> R.string.buruk
-            }
+    private fun getKategoriLabel(kategori: KategoriNilai): String {
+        val stringRes = when (kategori) {
+            KategoriNilai.A -> R.string.bagus
+            KategoriNilai.B -> R.string.lumayan
+            KategoriNilai.C -> R.string.buruk
+        }
         return getString(stringRes)
     }
 
@@ -81,4 +91,13 @@ class MainActivity : AppCompatActivity() {
             return
         }
     }
+
+    private fun showResult(result: HasilNilai) {
+        binding.nilaiTextView.text = getString(R.string.nilai_x, result.nilai)
+        binding.indexTextView.text = getString(
+            R.string.index_x,
+            getKategoriLabel(result.kategori)
+        )
+    }
+
 }
