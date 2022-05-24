@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,122 +17,87 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/amiko"
             android:text="@string/hitung_nilai_intro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:labelFor="@id/praktikumEditText"
-            android:text="@string/praktikum"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/praktikumEditText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/praktikumEditText" />
-
-        <EditText
-            android:id="@+id/praktikumEditText"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/praktikum_hint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ass1TextView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@id/textView">
 
-        <TextView
-            android:id="@+id/ass1TextView"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/praktikum_inp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nilai_praktikum" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/assessment1_hint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:labelFor="@id/ass1EditText"
-            android:text="@string/assessment1"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/ass1EditText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ass1EditText" />
-
-        <EditText
-            android:id="@+id/ass1EditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/praktikumEditText"
-            app:layout_constraintTop_toBottomOf="@+id/praktikumEditText" />
+            app:layout_constraintTop_toBottomOf="@id/praktikum_hint">
 
-        <TextView
-            android:id="@+id/ass2TextView"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/assessment1_inp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nilai_assessment_1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/assessment2_hint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:labelFor="@id/ass2EditText"
-            android:text="@string/assessment2"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/ass2EditText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ass2EditText" />
-
-        <EditText
-            android:id="@+id/ass2EditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/praktikumEditText"
-            app:layout_constraintTop_toBottomOf="@+id/ass1EditText" />
+            app:layout_constraintTop_toBottomOf="@id/assessment1_hint">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/assessment2_inp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nilai_assessment_2" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/ass3TextView"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/assessment3_hint"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:labelFor="@id/ass1EditText"
-            android:text="@string/assessment3"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@+id/ass3EditText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ass3EditText" />
-
-        <EditText
-            android:id="@+id/ass3EditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/praktikumEditText"
-            app:layout_constraintTop_toBottomOf="@+id/ass2EditText" />
+            app:layout_constraintTop_toBottomOf="@id/assessment2_hint">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/assessment3_inp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nilai_assessment_2" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="@string/hitung"
-            app:layout_constraintStart_toStartOf="@+id/ass3EditText"
-            app:layout_constraintTop_toBottomOf="@+id/ass3EditText" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/assessment3_hint"
+            app:layout_constraintTop_toBottomOf="@+id/assessment3_hint" />
 
         <View
             android:id="@+id/divider"
@@ -149,8 +113,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider"
@@ -162,12 +126,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="32dp"
-            android:textSize="18sp"
             android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/saranButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nilaiTextView"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Index : A" />
 
         <Button

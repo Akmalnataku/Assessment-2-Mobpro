@@ -20,22 +20,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hitungNilai() {
-        val praktikum = binding.praktikumEditText.text.toString()
+        val praktikum = binding.praktikumInp.text.toString()
         if (TextUtils.isEmpty(praktikum)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val assessment1 = binding.ass1EditText.text.toString()
+        val assessment1 = binding.assessment1Inp.text.toString()
         if (TextUtils.isEmpty(assessment1)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val assessment2 = binding.ass2EditText.text.toString()
+        val assessment2 = binding.assessment2Inp.text.toString()
         if (TextUtils.isEmpty(assessment2)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
         }
-        val assessment3 = binding.ass3EditText.text.toString()
+        val assessment3 = binding.assessment3Inp.text.toString()
         if (TextUtils.isEmpty(assessment3)) {
             Toast.makeText(this, R.string.nilai_invalid, Toast.LENGTH_LONG).show()
             return
@@ -61,23 +61,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun reset() {
-        val text1 = binding.praktikumEditText.text.toString()
-        val text2 = binding.ass1EditText.text.toString()
-        val text3 = binding.ass2EditText.text.toString()
-        val text4 = binding.ass3EditText.text.toString()
+        val text1 = binding.praktikumInp.text.toString()
+        val text2 = binding.assessment1Inp.text.toString()
+        val text3 = binding.assessment2Inp.text.toString()
+        val text4 = binding.assessment3Inp.text.toString()
 
         if (text1.isEmpty() && text2.isEmpty() && text3.isEmpty() && text4.isEmpty()) {
             Toast.makeText(this, "Already Empty!", Toast.LENGTH_LONG).show()
         } else {
-            binding.praktikumEditText.setText("")
-            binding.ass1EditText.setText("")
-            binding.ass2EditText.setText("")
-            binding.ass3EditText.setText("")
+            binding.praktikumInp.setText("")
+            binding.assessment1Inp.setText("")
+            binding.assessment2Inp.setText("")
+            binding.assessment3Inp.setText("")
             binding.nilaiTextView.text = ""
             binding.indexTextView.text = ""
-            binding.praktikumEditText.requestFocus()
+            binding.praktikumInp.requestFocus()
             //supaya cursornya hilang
-            binding.praktikumEditText.clearFocus()
+            binding.praktikumInp.clearFocus()
             return
         }
     }

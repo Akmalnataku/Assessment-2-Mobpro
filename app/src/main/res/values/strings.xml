@@ -16,4 +16,7 @@
     <string name="lumayan">B</string>
     <string name="buruk">C</string>
     <string name="nilai_invalid">Nilai tidak boleh kosong.</string>
+    <string name="nilai_praktikum">Nilai Praktikum</string>
+    <string name="nilai_assessment_1">Nilai Assessment 1</string>
+    <string name="nilai_assessment_2">Nilai Assessment 2</string>
 </resources>
