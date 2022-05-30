@@ -9,6 +9,7 @@ import org.d3if2090.hitungnilai.model.KategoriNilai
 class MainViewModel: ViewModel() {
 
     private val hasilNilai = MutableLiveData<HasilNilai?>()
+    private val navigasi = MutableLiveData<KategoriNilai?>()
 
     fun hitungNilai(
         praktikum: Float,
@@ -33,4 +34,14 @@ class MainViewModel: ViewModel() {
     }
 
     fun getHasilNilai(): LiveData<HasilNilai?> = hasilNilai
+
+    fun mulaiNavigasi() {
+        navigasi.value = hasilNilai.value?.kategori
+    }
+
+    fun selesaiNavigasi() {
+        navigasi.value = null
+    }
+
+    fun getNavigasi() : LiveData<KategoriNilai?> = navigasi
 }

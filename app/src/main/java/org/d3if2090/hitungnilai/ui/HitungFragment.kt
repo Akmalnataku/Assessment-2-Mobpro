@@ -2,13 +2,12 @@ package org.d3if2090.hitungnilai.ui
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import org.d3if2090.hitungnilai.R
 import org.d3if2090.hitungnilai.databinding.FragmentHitungBinding
 import org.d3if2090.hitungnilai.model.HasilNilai
@@ -25,18 +24,39 @@ class HitungFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
                           , savedInstanceState: Bundle?): View {
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button.setOnClickListener { hitungNilai() }
         binding.btnReset.setOnClickListener { reset() }
-        binding.saranButton.setOnClickListener {
-            it.findNavController().navigate(
-                R.id.action_hitungFragment_to_saranFragment
-            )
-        }
+        binding.saranButton.setOnClickListener { viewModel.mulaiNavigasi() }
+
         viewModel.getHasilNilai().observe(requireActivity(), {showResult(it)})
+        viewModel.getNavigasi().observe(viewLifecycleOwner, {
+            if (it == null) return@observe
+            findNavController().navigate(
+                HitungFragmentDirections
+                    .actionHitungFragmentToSaranFragment(it)
+            )
+            viewModel.selesaiNavigasi()
+        })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.option_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_about) {
+            findNavController().navigate(
+                R.id.action_hitungFragment_to_aboutFragment
+            )
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun hitungNilai() {

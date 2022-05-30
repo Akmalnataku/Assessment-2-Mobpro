@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import org.d3if2090.hitungnilai.R
 import org.d3if2090.hitungnilai.databinding.FragmentSaranBinding
 import org.d3if2090.hitungnilai.model.KategoriNilai
@@ -13,6 +14,7 @@ import org.d3if2090.hitungnilai.model.KategoriNilai
 class SaranFragment : Fragment() {
 
     private lateinit var binding: FragmentSaranBinding
+    private val args: SaranFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +46,6 @@ class SaranFragment : Fragment() {
         }
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        updateUI(KategoriNilai.C)
+        updateUI(args.kategori)
     }
 }
