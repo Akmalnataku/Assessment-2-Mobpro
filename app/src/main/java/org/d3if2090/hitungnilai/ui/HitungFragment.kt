@@ -1,5 +1,6 @@
 package org.d3if2090.hitungnilai.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.*
@@ -21,8 +22,9 @@ class HitungFragment : Fragment() {
         ViewModelProvider(requireActivity())[MainViewModel::class.java]
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
-                          , savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         binding = FragmentHitungBinding.inflate(layoutInflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
@@ -32,8 +34,9 @@ class HitungFragment : Fragment() {
         binding.button.setOnClickListener { hitungNilai() }
         binding.btnReset.setOnClickListener { reset() }
         binding.saranButton.setOnClickListener { viewModel.mulaiNavigasi() }
+        binding.shareButton.setOnClickListener { shareData() }
 
-        viewModel.getHasilNilai().observe(requireActivity(), {showResult(it)})
+        viewModel.getHasilNilai().observe(requireActivity(), { showResult(it) })
         viewModel.getNavigasi().observe(viewLifecycleOwner, {
             if (it == null) return@observe
             findNavController().navigate(
@@ -42,6 +45,26 @@ class HitungFragment : Fragment() {
             )
             viewModel.selesaiNavigasi()
         })
+    }
+
+    private fun shareData() {
+        val message = getString(
+            R.string.bagikan_template,
+            binding.praktikumInp.text,
+            binding.assessment1Inp.text,
+            binding.assessment2Inp.text,
+            binding.assessment3Inp.text,
+            binding.nilaiTextView.text,
+            binding.indexTextView.text
+        )
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager
+            ) != null
+        ) {
+            startActivity(shareIntent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -130,7 +153,7 @@ class HitungFragment : Fragment() {
             R.string.index_x,
             getKategoriLabel(result.kategori)
         )
-        binding.saranButton.visibility = View.VISIBLE
+        binding.buttonGroup.visibility = View.VISIBLE
     }
 
 }
