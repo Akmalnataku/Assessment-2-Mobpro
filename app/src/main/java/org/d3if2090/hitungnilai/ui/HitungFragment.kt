@@ -7,7 +7,6 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import org.d3if2090.hitungnilai.R
 import org.d3if2090.hitungnilai.databinding.FragmentHitungBinding
@@ -18,8 +17,8 @@ class HitungFragment : Fragment() {
 
     private lateinit var binding: FragmentHitungBinding
 
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(requireActivity())[MainViewModel::class.java]
+    private val viewModel: HitungViewModel by lazy {
+        ViewModelProvider(requireActivity())[HitungViewModel::class.java]
     }
 
     override fun onCreateView(

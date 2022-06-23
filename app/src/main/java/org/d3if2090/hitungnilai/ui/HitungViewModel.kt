@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import org.d3if2090.hitungnilai.model.HasilNilai
 import org.d3if2090.hitungnilai.model.KategoriNilai
 
-class MainViewModel: ViewModel() {
+class HitungViewModel: ViewModel() {
 
     private val hasilNilai = MutableLiveData<HasilNilai?>()
     private val navigasi = MutableLiveData<KategoriNilai?>()

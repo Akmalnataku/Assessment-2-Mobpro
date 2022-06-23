@@ -29,5 +29,5 @@
 
     <string name="tentang_aplikasi">Tentang Aplikasi</string>
     <string name="copyright">Hitung Nilai MOBPRO merupakan sebuah aplikasi Android untuk menghitung nilai Mata Kuliah MOBPRO sehingga seseorang dapat mengetahui apakah nilainya A, B atau C.\n\nAplikasi ini dibuat untuk Assessment 2 Mobpro 1. Temukan kodenya di https://github.com/Akmalnataku/Assessment-2-Mobpro \n\nCopyright © 2022 Akmal Natakusuma.\nAll rights reserved.</string>
-    <string name="bagikan_template">Nilai akhir: %1$s kg\nIndeks nilai: %2$s\nPraktikum: %3$s\nAssessment 1: %4$s\nAssessment 2: %5$s\nAssessment 3: %6$s</string>
+    <string name="bagikan_template">Nilai praktikum: %1$s \nAssessment 1: %2$s\nAssessment 2: %3$s\nAssessment 3: %4$s\nNilai akhir: %5$s\nINDEX: %6$s</string>
 </resources>
