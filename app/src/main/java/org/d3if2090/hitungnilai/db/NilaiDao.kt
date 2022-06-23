@@ -11,6 +11,6 @@ interface NilaiDao {
     @Insert
     fun insert(nilai: NilaiEntity)
 
-    @Query("SELECT * FROM nilai ORDER BY id DESC LIMIT 1")
-    fun getLastNilai(): LiveData<NilaiEntity>
+    @Query("SELECT * FROM nilai ORDER BY id DESC")
+    fun getLastNilai(): LiveData<List<NilaiEntity>>
 }

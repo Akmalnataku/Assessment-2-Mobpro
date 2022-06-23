@@ -17,7 +17,7 @@ class HitungViewModel(private val db: NilaiDao) : ViewModel() {
     private val hasilNilai = MutableLiveData<HasilNilai?>()
     private val navigasi = MutableLiveData<KategoriNilai?>()
 
-    val data = db.getLastNilai()
+//    val data = db.getLastNilai()
 
     fun hitungNilai(
         praktikum: Float,
