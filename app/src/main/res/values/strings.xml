@@ -35,4 +35,8 @@
 
     <string name="hasil_x">NILAI: %1$.2f - %2$s</string>
     <string name="data_x">Praktikum: %1$s - Assessment 1: %2$s \nAssessment 2: %3$s - Assessment 3: %4$s</string>
+    <string name="hapus_histori">Hapus Histori</string>
+    <string name="konfirmasi_hapus">Hapus semua kenangan?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
 </resources>
