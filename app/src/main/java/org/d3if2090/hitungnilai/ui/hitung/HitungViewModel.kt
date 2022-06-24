@@ -1,17 +1,24 @@
 package org.d3if2090.hitungnilai.ui.hitung
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.d3if2090.hitungnilai.MainActivity
 import org.d3if2090.hitungnilai.db.NilaiDao
 import org.d3if2090.hitungnilai.db.NilaiEntity
 import org.d3if2090.hitungnilai.model.HasilNilai
 import org.d3if2090.hitungnilai.model.KategoriNilai
 import org.d3if2090.hitungnilai.model.hitungnilai
+import org.d3if2090.hitungnilai.network.UpdateWorker
+import java.util.concurrent.TimeUnit
 
 class HitungViewModel(private val db: NilaiDao) : ViewModel() {
 
@@ -52,4 +59,16 @@ class HitungViewModel(private val db: NilaiDao) : ViewModel() {
     }
 
     fun getNavigasi(): LiveData<KategoriNilai?> = navigasi
+
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(2, TimeUnit.SECONDS)
+            .build()
+
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            MainActivity.CHANNEL_ID,
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+    }
 }

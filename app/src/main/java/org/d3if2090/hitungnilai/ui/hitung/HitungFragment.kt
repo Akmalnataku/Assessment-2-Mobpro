@@ -48,6 +48,7 @@ class HitungFragment : Fragment() {
             )
             viewModel.selesaiNavigasi()
         })
+        viewModel.scheduleUpdater(requireActivity().application)
     }
 
     private fun shareData() {
