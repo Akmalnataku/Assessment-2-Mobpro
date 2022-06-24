@@ -48,7 +48,7 @@ class HitungFragment : Fragment() {
             )
             viewModel.selesaiNavigasi()
         })
-        viewModel.scheduleUpdater(requireActivity().application)
+
     }
 
     private fun shareData() {
@@ -121,6 +121,7 @@ class HitungFragment : Fragment() {
             assessment2.toFloat(),
             assessment3.toFloat()
         )
+        viewModel.scheduleUpdater(requireActivity().application)
     }
 
     private fun getKategoriLabel(kategori: KategoriNilai): String {

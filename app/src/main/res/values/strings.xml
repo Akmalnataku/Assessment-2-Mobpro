@@ -42,5 +42,8 @@
     <string name="batal">Batal</string>
 
     <string name="channel_name">Updater</string>
-    <string name="channel_desc">Update data hewan otomatis</string>
+    <string name="channel_desc">Update data nilai otomatis</string>
+
+    <string name="notif_title">Ada kenangan baru!</string>
+    <string name="notif_text">Cek sekarang, siapa tau pengen kamu hapus</string>
 </resources>

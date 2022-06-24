@@ -41,6 +41,7 @@ class HitungViewModel(private val db: NilaiDao) : ViewModel() {
         )
         hasilNilai.value = dataNilai.hitungnilai()
 
+
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 db.insert (dataNilai)
@@ -62,7 +63,7 @@ class HitungViewModel(private val db: NilaiDao) : ViewModel() {
 
     fun scheduleUpdater(app: Application) {
         val request = OneTimeWorkRequestBuilder<UpdateWorker>()
-            .setInitialDelay(2, TimeUnit.SECONDS)
+            .setInitialDelay(5, TimeUnit.SECONDS)
             .build()
 
         WorkManager.getInstance(app).enqueueUniqueWork(
