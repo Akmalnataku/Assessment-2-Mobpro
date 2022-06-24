@@ -36,7 +36,8 @@
                 android:id="@+id/praktikum_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nilai_praktikum" />
+                android:hint="@string/nilai_praktikum"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -52,7 +53,8 @@
                 android:id="@+id/assessment1_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nilai_assessment_1" />
+                android:hint="@string/nilai_assessment_1"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -68,7 +70,8 @@
                 android:id="@+id/assessment2_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nilai_assessment_2" />
+                android:hint="@string/nilai_assessment_2"
+                android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +87,8 @@
                 android:id="@+id/assessment3_inp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nilai_assessment_2" />
+                android:hint="@string/nilai_assessment_3"
+                android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
