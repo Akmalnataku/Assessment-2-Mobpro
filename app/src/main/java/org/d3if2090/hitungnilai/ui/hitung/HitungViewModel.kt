@@ -11,6 +11,7 @@ import org.d3if2090.hitungnilai.db.NilaiDao
 import org.d3if2090.hitungnilai.db.NilaiEntity
 import org.d3if2090.hitungnilai.model.HasilNilai
 import org.d3if2090.hitungnilai.model.KategoriNilai
+import org.d3if2090.hitungnilai.model.hitungnilai
 
 class HitungViewModel(private val db: NilaiDao) : ViewModel() {
 
@@ -25,32 +26,19 @@ class HitungViewModel(private val db: NilaiDao) : ViewModel() {
         assessment2: Float,
         assessment3: Float
     ) {
-        val nilai =
-            ((praktikum * 0.25) + (assessment1 * 0.2) + (assessment2 * 0.25) + (assessment3 * 0.3))
-        val kategori = getKategori(nilai)
-        hasilNilai.value = HasilNilai(nilai, kategori)
+        val dataNilai = NilaiEntity(
+            praktikum = praktikum,
+            assessment1 = assessment1,
+            assessment2 = assessment2,
+            assessment3 = assessment3
+        )
+        hasilNilai.value = dataNilai.hitungnilai()
 
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                val dataNilai = NilaiEntity(
-                    praktikum = praktikum,
-                    assessment1 = assessment1,
-                    assessment2 = assessment2,
-                    assessment3 = assessment3
-                )
                 db.insert (dataNilai)
             }
         }
-    }
-
-    private fun getKategori(nilai: Double): KategoriNilai {
-        val kategori =
-            when {
-                nilai >= 80 -> KategoriNilai.A
-                nilai <= 59.99 -> KategoriNilai.C
-                else -> KategoriNilai.B
-            }
-        return kategori
     }
 
     fun getHasilNilai(): LiveData<HasilNilai?> = hasilNilai
